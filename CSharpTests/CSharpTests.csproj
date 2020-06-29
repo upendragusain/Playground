@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CSharp7\CSharp7.csproj" />
+    <ProjectReference Include="..\CSharpGeneral\CSharpGeneral.csproj" />
   </ItemGroup>
 
 </Project>
