@@ -19,6 +19,12 @@ namespace CSharp7
 
 
     //https://docs.microsoft.com/en-us/dotnet/csharp/pattern-matching#the-is-type-pattern-expression
+    /*
+     * Pattern Matching constructs enable you to easily manage control flow among different variables and types 
+     * that aren't related by an inheritance hierarchy.
+     * Pattern Matching works with any data type. 
+     * The default case is evaluated last, regardless of its textual order. 
+     */
     public static class PatternMatching
     {
         public static string Match(object o)
