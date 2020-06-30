@@ -15,6 +15,13 @@ namespace CSharpGeneral
      * You may also use the in keyword to pass a value parameter by reference to avoid the copy while guaranteeing that the value will not be changed.
      * 
      * the contents of a value type are copied into the parameter
+     * 
+     * When a reference type is passed by value to a method, the method receives a copy of the reference to the class instance. 
+     * That is, the called method receives a copy of the address of the instance, and the calling method retains the original address of the instance.
+     * The class instance in the calling method has an address, the parameter in the called method has a copy of the address, 
+     * and both addresses refer to the same object
+     * 
+     * Because a struct is a value type, when you pass a struct by value to a method, the method receives and operates on a copy of the struct argument. The method has no access to the original struct in the calling method and therefore can't change it in any way. 
      */
     public class PassingParameters
     {
@@ -47,6 +54,18 @@ namespace CSharpGeneral
             // we have now made the ref point to another array, basically overwritting it
             // bacause the ref type was now passed by ref we have full control to change it and the changes will persit in the calling code
             array = new int[] { 69 };
+        }
+
+        /*
+         * Defining methods using in parameters is a potential performance optimization. 
+         * Some struct type arguments may be large in size, and when methods are called in tight loops or critical code paths, the cost of copying those structures 
+         * is critical. Methods declare in parameters to specify that arguments may be passed by reference safely because the called method does not modify the 
+         * state of that argument. Passing those arguments by reference avoids the (potentially) expensive copy.
+         */
+        public static void InArgsExample(in int num)
+        {
+            // compile error, num is readonly!
+            //num++;
         }
     }
 }
