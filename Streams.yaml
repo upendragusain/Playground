@@ -1,6 +1,10 @@
 -C#
- -exceptions in catch and finaly blocks (current exception is lost)
+ - exceptions in catch and finaly blocks (current exception is lost)
  - += vs =+ etc.
+ - async https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/
+ - async https://docs.microsoft.com/en-us/archive/msdn-magazine/2013/march/async-await-best-practices-in-asynchronous-programming
+ - yield return
+ - unsafe
 
 -.Net Core
  -sdfdss
