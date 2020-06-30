@@ -1,12 +1,15 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace CSharp8
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            await AsyncStreams.Run();
+
+            Console.ReadLine();
         }
     }
 }
