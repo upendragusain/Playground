@@ -55,6 +55,7 @@ namespace CSharpGeneral
 
         /*
          * Ordinarily, exceptions thrown in async method require that you examine the inner exceptions of an AggregateException. Local functions allow your code to fail fast and allow your exception to be both thrown and observed synchronously.
+         * notice no async in main method signature and no await in calling the local function
          */
         public static Task<string> DownloadPageWithLocalFunction(string url)
         {
@@ -68,6 +69,13 @@ namespace CSharpGeneral
                 await Task.Delay(TimeSpan.FromSeconds(2));
                 return "html content";
             }
+        }
+
+        public static long GetFactorial(long num)
+        {
+            if (num < 0) throw new ArgumentException();
+            if (num < 2) return 1;
+            return num * GetFactorial(num - 1);
         }
     }
 }

@@ -55,5 +55,24 @@ namespace CSharpTests
                 var result = LocalFunctions.DownloadPageWithLocalFunction("x").Result;
             });
         }
+
+        [Fact]
+        public void GetFactorialTest()
+        {
+            var fact0 = LocalFunctions.GetFactorial(0);
+            Assert.Equal(1, fact0);
+
+            var fact1 = LocalFunctions.GetFactorial(1);
+            Assert.Equal(1, fact1);
+
+            var fact2 = LocalFunctions.GetFactorial(2);
+            Assert.Equal(2, fact2);
+
+            var fact10 = LocalFunctions.GetFactorial(10);
+            Assert.Equal(3628800, fact10);
+
+            long fact13 = LocalFunctions.GetFactorial(13);
+            Assert.Equal(6227020800, fact13);
+        }
     }
 }
