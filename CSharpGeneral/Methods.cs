@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CSharpGeneral
+﻿namespace CSharpGeneral
 {
     /*
      * A return type of a method is not part of the signature of the method for the purposes of method overloading.
@@ -42,14 +40,6 @@ namespace CSharpGeneral
         {
             var honda = new Honda();
             honda.Drive(100, 80);
-        }
-    }
-
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.ReadLine();
         }
     }
 }

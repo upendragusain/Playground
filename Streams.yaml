@@ -1,12 +1,15 @@
 -C#
  - exceptions in catch and finaly blocks (current exception is lost)
  - += vs =+ etc.
+ - Threading https://docs.microsoft.com/en-us/dotnet/standard/threading/
  - async https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/
  - async https://docs.microsoft.com/en-us/archive/msdn-magazine/2013/march/async-await-best-practices-in-asynchronous-programming
  - ValueTask (for  performance bottlenecks) https://devblogs.microsoft.com/dotnet/understanding-the-whys-whats-and-whens-of-valuetask/
  - yield return
  - unsafe https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/fixed-statement
  - finalizer ~
+ - delegates
+ - events
 
 -.Net Core
  -sdfdss
