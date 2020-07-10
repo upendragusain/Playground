@@ -10,6 +10,7 @@
  - finalizer ~
  - delegates
  - events
+ - Span<T>
 
 -.Net Core
  -sdfdss

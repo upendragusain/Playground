@@ -9,14 +9,15 @@ namespace CSharpGeneral
             //Equality.Run();
 
 
-            EncodingExample.Run();
-            EncodingExample
-                .PrintCharWithUnicodeCodePoint(
-                ":upendra singh gusain?");
+            //EncodingExample.Run();
 
-            EncodingExample
-                .PrintCharWithUnicodeCodePoint(
-                "你好");
+            //EncodingExample
+            //    .PrintCharWithUnicodeCodePoint(
+            //    ":upendra singh gusain?");
+
+            //EncodingExample
+            //    .PrintCharWithUnicodeCodePoint(
+            //    "你好");
 
             //EncodingExample
             //    .PrintCharWithUnicodeCodePoint(
@@ -27,6 +28,17 @@ namespace CSharpGeneral
             //EncodingExample.Base64EncodingAndBack("man");
 
             //UsingStreams.Run();
+
+            //UsingStreams.MSDocsExample();
+
+            //UsingStreams.ReadFileIntoABuffer();
+
+            //UsingStreams.WriteToFileUsingEndOfStream();
+            //UsingStreams.ReadFileUsingEndOfStream();
+
+            //UsingStreams.ReadFileUsingEndOfStream2();
+
+            UsingStreams.ReadAndWrite();
 
             Console.ReadLine();
         }
