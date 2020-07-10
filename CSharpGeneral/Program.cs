@@ -10,17 +10,21 @@ namespace CSharpGeneral
 
 
             //EncodingExample.Run();
-            EncodingExample
-                .PrintCharWithUnicodeCodePoint(
-                ":upendra singh gusain?");
+            //EncodingExample
+            //    .PrintCharWithUnicodeCodePoint(
+            //    ":upendra singh gusain?");
 
-            EncodingExample
-                .PrintCharWithUnicodeCodePoint(
-                "你好");
+            //EncodingExample
+            //    .PrintCharWithUnicodeCodePoint(
+            //    "你好");
 
-            EncodingExample
-                .PrintCharWithUnicodeCodePoint(
-                "🐂");
+            //EncodingExample
+            //    .PrintCharWithUnicodeCodePoint(
+            //    "🐂");
+
+
+            //EncodingExample.Base64EncodingAndBack("upendra singh Gusain");
+            EncodingExample.Base64EncodingAndBack("man");
 
             //UsingStreams.Run();
 

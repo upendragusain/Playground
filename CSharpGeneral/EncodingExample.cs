@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
 using static System.Console;
 
@@ -32,6 +31,26 @@ namespace CSharpGeneral
             {
                 // :x4 => hex with 4 length padded
                 WriteLine($"'{text[i]}' => Unicode Code:  '\\u{(int)text[i]:x4}', Decimal: {(int)text[i]}");
+            }
+        }
+
+        public static void Base64EncodingAndBack(string text)
+        {
+            WriteLine($"Original text: {text}");
+            byte[] text_toBytes = Encoding.UTF8.GetBytes(text, 0, text.Length);
+            for (int i = 0; i < text_toBytes.Length; i++)
+            {
+                Write($"{text_toBytes[i]}\t");
+            }
+            WriteLine();
+            var text_base64Encoded = Convert.ToBase64String(text_toBytes);
+            WriteLine($"Base64 Encoded text: {text_base64Encoded}");
+
+            byte[] base64EncodedBytes =
+                Encoding.UTF8.GetBytes(text_base64Encoded, 0, text_base64Encoded.Length);
+            for (int i = 0; i < base64EncodedBytes.Length; i++)
+            {
+                Write($"{base64EncodedBytes[i]}\t");
             }
         }
     }
