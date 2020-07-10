@@ -30,7 +30,8 @@ namespace CSharpGeneral
             for (int i = 0; i < text.Length; i++)
             {
                 // :x4 => hex with 4 length padded
-                WriteLine($"'{text[i]}' => Unicode Code:  '\\u{(int)text[i]:x4}', Decimal: {(int)text[i]}");
+                string int_toBase2 = Convert.ToString((int)text[i],2);
+                WriteLine($"'{text[i]}' => Unicode Code:  '\\u{(int)text[i]:x4}', Decimal: {(int)text[i]}, byte sequence: {int_toBase2}");
             }
         }
 
