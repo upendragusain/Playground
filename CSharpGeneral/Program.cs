@@ -40,7 +40,9 @@ namespace CSharpGeneral
 
             //UsingStreams.ReadAndWrite();
 
-            UsingStreams.MemoryStreamExample();
+            //UsingStreams.MemoryStreamExample();
+
+            UsingStreams.CsvReaderExample();
 
             Console.ReadLine();
         }

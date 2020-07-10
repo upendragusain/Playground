@@ -1,4 +1,8 @@
-﻿using System;
+﻿using CsvHelper;
+using CsvHelper.Configuration;
+using CsvHelper.Configuration.Attributes;
+using System;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -148,7 +152,7 @@ namespace CSharpGeneral
 
         public static void MemoryStreamExample()
         {
-            using(var memoryStream = new MemoryStream(100))
+            using (var memoryStream = new MemoryStream(100))
             {
                 using (var streamWriter = new StreamWriter(memoryStream))
                 {
@@ -164,12 +168,38 @@ namespace CSharpGeneral
                     }
 
                     //write from memory to file
-                    using (var fileStream = new FileStream("FromMemory.txt",FileMode.Create))
+                    using (var fileStream = new FileStream("FromMemory.txt", FileMode.Create))
                     {
                         memoryStream.WriteTo(fileStream);
                     }
                 }
             }
+        }
+
+        public static void CsvReaderExample()
+        {
+            using (var reader = new StreamReader("report.csv"))
+            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            {
+                csv.Configuration.HasHeaderRecord = true;
+                var records = csv.GetRecords<Foo>();
+                foreach (var item in records)
+                {
+                    WriteLine($"{item.Id}\t{item.Name}\t{item.DOB}");
+                }
+            }
+        }
+
+        public class Foo
+        {
+            [Index(0)]
+            public string Id { get; set; }
+
+            [Index(1)]
+            public string Name { get; set; }
+
+            [Index(2)]
+            public string DOB { get; set; }
         }
     }
 }
