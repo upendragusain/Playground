@@ -38,7 +38,9 @@ namespace CSharpGeneral
 
             //UsingStreams.ReadFileUsingEndOfStream2();
 
-            UsingStreams.ReadAndWrite();
+            //UsingStreams.ReadAndWrite();
+
+            UsingStreams.MemoryStreamExample();
 
             Console.ReadLine();
         }

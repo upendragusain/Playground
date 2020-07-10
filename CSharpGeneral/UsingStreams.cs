@@ -6,6 +6,7 @@ using static System.Console;
 
 namespace CSharpGeneral
 {
+    //The FileStream and MemoryStream are the underlying Streams for the other derived Stream types (BinaryReader/StringReader etc)
     public class UsingStreams
     {
         private const string FILE_NAME = @"csharptest.dat";
@@ -140,6 +141,32 @@ namespace CSharpGeneral
                     {
                         var line = streamReader.ReadLine();
                         streamWriter.WriteLine(line.ToUpperInvariant());
+                    }
+                }
+            }
+        }
+
+        public static void MemoryStreamExample()
+        {
+            using(var memoryStream = new MemoryStream(100))
+            {
+                using (var streamWriter = new StreamWriter(memoryStream))
+                {
+                    streamWriter.WriteLine("Writing into RAM");
+                    streamWriter.WriteLine("ok, done");
+
+                    streamWriter.Flush();
+                    //confirm we wrote to memory stream
+                    var data = memoryStream.ToArray();
+                    for (int i = 0; i < data.Length; i++)
+                    {
+                        Write((char)data[i]);
+                    }
+
+                    //write from memory to file
+                    using (var fileStream = new FileStream("FromMemory.txt",FileMode.Create))
+                    {
+                        memoryStream.WriteTo(fileStream);
                     }
                 }
             }
