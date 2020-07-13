@@ -51,6 +51,18 @@ namespace CSharpTests
             employee.GetRemainingLeaves(month).Should()
                 .Be((12 - month) * 2);
         }
+
+        [Fact]
+        public void NotBeViolated()
+        {
+            FluentAssertionsEmployee employee =
+                _fixture.Employee;
+
+            Action act = () => employee.GetShot();
+
+            act.Should().Throw<EmployeeRightsViolationException>()
+                .WithMessage("Employees may not be shot");
+        }
     }
 
     public class FluentAssertionsEmployeeFixture
