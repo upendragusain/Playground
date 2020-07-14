@@ -43,5 +43,11 @@ namespace CSharpTests
             var res = play.CallingDelegateWithOutParam(99);
             res.Should().Be(100);
         }
+
+        [Fact]
+        public void PredicateExample()
+        {
+            play.PredicateExample();
+        }
     }
 }

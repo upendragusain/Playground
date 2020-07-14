@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
 
 namespace CSharpGeneral.Delegates
 {
@@ -70,6 +67,24 @@ namespace CSharpGeneral.Delegates
         private void SetNumber(out int i)
         {
             i = 100;
+        }
+
+        //Represents the method that defines a set of criteria and determines whether the specified object meets those criteria.
+        //public delegate bool Predicate<in T>(T obj);
+        public void PredicateExample()
+        {
+            Predicate<int> isEven = (i) => { return i % 2 == 0; };
+
+            var res = isEven(11);
+            var res2 = isEven(12);
+
+            var i = 1;
+            var res3 = localMethod(i, i => i >= 10);
+
+            bool localMethod(int i, Predicate<int> condition)
+            {
+                return condition(i);
+            }
         }
     }
 }
