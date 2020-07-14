@@ -9,6 +9,8 @@ namespace CSharpGeneral.Delegates
     {
         public delegate string MyDelegate(string name);
 
+        public delegate void DelegateWithOutParam(out int i);
+
         public string UseGreetDelegate()
         {
             MyDelegate myDelegate = SayHi;
@@ -46,6 +48,28 @@ namespace CSharpGeneral.Delegates
             var res3 = del3("call all in added sequence, the result will be the result of last method invocation");
 
             var length = del3.GetInvocationList().Length;
+
+            MyDelegate del4 = Play.StaticMethod;
+
+            var del4_res = del4("invoking static method");
+
+        }
+
+        public static string StaticMethod(string message)
+        {
+            return message;
+        }
+
+        public int CallingDelegateWithOutParam(int i)
+        {
+            DelegateWithOutParam del = SetNumber;
+            del(out i);
+            return i;
+        }
+
+        private void SetNumber(out int i)
+        {
+            i = 100;
         }
     }
 }

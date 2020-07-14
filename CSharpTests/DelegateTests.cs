@@ -36,5 +36,12 @@ namespace CSharpTests
         {
             play.MulticastDelegate();
         }
+
+        [Fact]
+        public void CallingDelegateWithOutParam()
+        {
+            var res = play.CallingDelegateWithOutParam(99);
+            res.Should().Be(100);
+        }
     }
 }
