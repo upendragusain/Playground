@@ -19,5 +19,11 @@ namespace CSharpTests
                 .Should()
                 .Be("lionlionlionjohnjohnjohn");
         }
+
+        [Fact]
+        public void X()
+        {
+            ConcreteList.InnerTypeHidesOuterType();
+        }
     }
 }

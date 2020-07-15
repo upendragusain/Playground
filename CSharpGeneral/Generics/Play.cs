@@ -156,4 +156,38 @@ namespace CSharpGeneral.Generics
         }
     }
 
+    public class GenericList<T>
+    {
+        /*
+         * If you define a generic method that takes the same type parameters as the containing class, the compiler generates warning CS0693 because within the method scope, the argument supplied for the inner T hides the argument supplied for the outer T.
+         * also notice constraints at method level!
+         */
+        public void Method<T>() where T : new()
+        {
+        }
+
+        // providing another identifier for the type parameter of the method
+        // so as not to hide
+        public void Method2<U>()
+        {
+            
+        }
+    }
+
+    public class ConcreteList
+    {
+        public static void InnerTypeHidesOuterType()
+        {
+            var x = new GenericList<int>();
+            x.Method<A>();
+
+            x.Method2<string>();
+        } 
+
+        class A
+        {
+
+        }
+    }
+
 }
