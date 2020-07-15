@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSharpGeneral.CovarianceContravariance;
+using System;
 
 namespace CSharpGeneral
 {
@@ -42,7 +43,13 @@ namespace CSharpGeneral
 
             //UsingStreams.MemoryStreamExample();
 
-            UsingStreams.CsvReaderExample();
+            //UsingStreams.CsvReaderExample();
+
+            //Play.DoSomething();
+
+            //Play.ContravarianceAssignment();
+
+            Play.ContraVarianceInInterfaces();
 
             Console.ReadLine();
         }
