@@ -40,7 +40,8 @@ namespace CSharpGeneral.Delegates
 
         protected virtual void OnRaiseWeatherForecastEvent(WeatherEventArgs e)
         {
-            WeatherForecastEvent(this, e);
+            //WeatherForecastEvent(this, e);
+            WeatherForecastEvent?.Invoke(this, e);
         }
     }
 
