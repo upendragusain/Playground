@@ -9,10 +9,24 @@ namespace CSharpTests
     public class EventTests
     {
         [Fact]
-        public void Test1()
+        public void SimpleEvent()
         {
             EventExample ex = new EventExample();
             ex.Play();
+        }
+
+        [Fact]
+        public void GenericInterfaceWithEvent()
+        {
+            Test t = new Test();
+            t.DoSomething();
+        }
+
+        [Fact]
+        public void ExplicitInterfaceImplementationWithPropertyAccessors_Test()
+        {
+            ExplicitInterfaceImplementationWithPropertyAccessors t = new ExplicitInterfaceImplementationWithPropertyAccessors();
+            t.DoSomething();
         }
     }
 }

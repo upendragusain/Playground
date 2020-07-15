@@ -63,4 +63,67 @@ namespace CSharpGeneral.Delegates
             Debug.Print($"Subscriver {id} received event: {e.Date}, {e.Temeperature}");
         }
     }
+
+    public interface IHaveEvents<T>
+    {
+        event EventHandler<T> RecievedDataEvent;
+    }
+
+    public class Test : IHaveEvents<int>
+    {
+        public event EventHandler<int> RecievedDataEvent;
+        public Test()
+        {
+            RecievedDataEvent += Publisher2_RecievedDataEvent;
+        }
+
+        public void DoSomething()
+        {
+            RecievedDataEvent?.Invoke(this, 100);
+        }
+
+        private void Publisher2_RecievedDataEvent(object sender, int e)
+        {
+            Console.WriteLine(e);
+        }
+    }
+
+    public class ExplicitInterfaceImplementationWithPropertyAccessors : IHaveEvents<string>
+    {
+        // create a private field with the same event type??
+        private event EventHandler<string> privateVersionOfEvent;
+
+        public ExplicitInterfaceImplementationWithPropertyAccessors()
+        {
+            privateVersionOfEvent += (s, e) => { 
+                Console.WriteLine(e); 
+            };
+        }
+
+        public void DoSomething()
+        {
+            privateVersionOfEvent?.Invoke(this, "event with add and remove property accessors");
+        }
+
+        object objectLock = new object();
+        event EventHandler<string> IHaveEvents<string>.RecievedDataEvent
+        {
+            add
+            {
+                lock (objectLock) {
+                    privateVersionOfEvent += value;
+                }
+            }
+
+            remove
+            {
+                lock (objectLock)
+                {
+                    privateVersionOfEvent -= value;
+                }
+            }
+        }
+    }
+
+
 }
