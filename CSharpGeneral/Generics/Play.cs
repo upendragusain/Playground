@@ -96,4 +96,64 @@ namespace CSharpGeneral.Generics
             return "lionlionlion";
         }
     }
+
+    public class CLassA
+    {
+        // error as T can't be inferred
+        //public void Do(T a)
+        public void Do<T>(T a) //either make the method generic ver T or the class itself generic over T
+        {
+
+        }
+    }
+
+    public interface IMonth<T> 
+    {
+        T Get(T t);
+    }
+
+    // implementing clases will get a closed constructed (over int) 
+    // get method plus GetFeb  method with the type of their choice
+    public interface IFeb<T> : IMonth<int>
+    {
+        T GetFeb(T t);
+    }
+
+    public class A : IFeb<string>
+    {
+        public int Get(int t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetFeb(string t)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public interface IExist 
+    {
+        string IAm();
+    }
+
+    // out = return = covariance =  may return more derived type is default
+    // in = accept = contravariance = may acccept a less derived type
+    public interface ITooExist<out T>: IExist 
+    {
+        T ITooAm();
+    }
+    public class Existence : ITooExist<int>
+    {
+        public string IAm()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int ITooAm()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
 }
