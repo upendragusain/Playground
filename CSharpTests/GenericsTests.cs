@@ -1,7 +1,5 @@
 ﻿using CSharpGeneral.Generics;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using FluentAssertions;
 using Xunit;
 
 namespace CSharpTests
@@ -12,6 +10,14 @@ namespace CSharpTests
         public void MultipleConstraintsOnAGenericType_Test()
         {
             Play.MultipleConstraintsOnAGenericType();
+        }
+
+        [Fact]
+        public void ConstrainingMultipleParameters_Test()
+        {
+            Play.ConstrainingMultipleParameters()
+                .Should()
+                .Be("lionlionlionjohnjohnjohn");
         }
     }
 }
