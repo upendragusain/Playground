@@ -90,5 +90,23 @@ namespace CSharpGeneral.DelegatesAndEvents
                 return condition(i);
             }
         }
+
+        
+    }
+
+    public class GenericDelegate
+    {
+        public delegate T DoWork<T, U>(U u);
+
+        public int DoSomething()
+        {
+            DoWork<int, string> doWork = DoSomeUsefulWork;
+            return doWork("This is an example of generic delegate");
+        }
+
+        private int DoSomeUsefulWork(string s)
+        {
+            return s.Length;
+        }
     }
 }

@@ -49,5 +49,11 @@ namespace CSharpTests
         {
             play.PredicateExample();
         }
+
+        [Fact]
+        public void GenericDelegateTest()
+        {
+            new GenericDelegate().DoSomething().Should().Be(38); ;
+        }
     }
 }
