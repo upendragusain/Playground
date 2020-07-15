@@ -70,7 +70,6 @@ namespace CSharpGeneral.CovarianceContravariance
             var res2 = derivedComparer.Equals(
                 new DerivedClass(103, "xxx"), new DerivedClass(103, "yyy"));
         }
-
     }
 
     internal class A
@@ -117,5 +116,31 @@ namespace CSharpGeneral.CovarianceContravariance
         {
             return obj.GetHashCode();
         }
+    }
+
+    public interface ICovariant<out T>
+    {
+        T Get();
+
+        // *** compile error, as covariance is about returning the same type and not accepting the same type
+        // either make this interface invariant by removing the 'out'
+        // or make this interface both co and contra variant by using in and out but for separate methods!!!
+        //void Set(T t);
+    }
+
+    public interface IContraVariant<in T>
+    {
+        void Set(T t);
+
+        // *** same compile error as above
+        // if contra variant then the same type must be asked for as a parameter and and must not return the same type
+        //T Get();
+    }
+
+    public interface BothCoAndContravariant<out T, in U>
+    {
+        T Get();
+
+        void Set(U u);
     }
 }
