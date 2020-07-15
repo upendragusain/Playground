@@ -1,4 +1,4 @@
-﻿using CSharpGeneral.Delegates;
+﻿using CSharpGeneral.DelegatesAndEvents;
 using System;
 using System.Collections.Generic;
 using System.Text;

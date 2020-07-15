@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CSharpGeneral.Delegates
+namespace CSharpGeneral.DelegatesAndEvents
 {
     /*
      * Action, Func and Predicate (Represents the method that defines a set of criteria and determines whether the specified object meets those criteria.) John went home (subject+ predicate(went home))

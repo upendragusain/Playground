@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 
-namespace CSharpGeneral.Delegates
+namespace CSharpGeneral.DelegatesAndEvents
 {
     public class EventExample
     {

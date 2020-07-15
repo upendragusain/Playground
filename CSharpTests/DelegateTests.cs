@@ -1,4 +1,4 @@
-﻿using CSharpGeneral.Delegates;
+﻿using CSharpGeneral.DelegatesAndEvents;
 using FluentAssertions;
 using Xunit;
 
