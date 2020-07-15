@@ -2,6 +2,10 @@
 
 namespace CSharpGeneral.Delegates
 {
+    /*
+     * Action, Func and Predicate (Represents the method that defines a set of criteria and determines whether the specified object meets those criteria.) John went home (subject+ predicate(went home))
+       All these delegate type definitions in the .NET Core Library should mean that you do not need to define a new delegate type for any new feature you create that requires delegates. These generic definitions should provide all the delegate types you need under most situations. You can simply instantiate one of these types with the required type parameters. In the case of algorithms that can be made generic, these delegates can be used as generic types.
+     */
     public class Play
     {
         public delegate string MyDelegate(string name);
