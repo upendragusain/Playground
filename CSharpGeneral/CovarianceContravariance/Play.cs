@@ -29,6 +29,15 @@ namespace CSharpGeneral.CovarianceContravariance
             // more derived types can be assigned to less derived types
             IEnumerable<object> objects = strings;
             IEnumerable<object> objects2 = new List<A>();
+
+            // *** Value types do not support variance.
+            IEnumerable<int> ints = new List<int>();
+            //IEnumerable<object> wontwork = ints;
+
+            // *** It is also important to remember that classes that implement variant interfaces are still invariant.
+            //List<object> willNotWorkAsListClassIsNotVariant = new List<string>();
+            IEnumerable<object> works_fine_since_not_a_class_but_IEnumerable_Interface = 
+                new List<string>();
         }
 
         //Action is declared with 'in' hence contravariant
